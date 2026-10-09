@@ -1,0 +1,15 @@
+{
+    "authors": [
+        {
+            "name": "TangoEchoXray",
+            "role": "CREATOR"
+        }
+    ],
+    "description": "EXPERIMENTAL fork of Custom Terrain: natural meandering rivers with varying widths, estuaries and deltas, great river option, detailed coastlines with islands, play-style recipes.",
+    "name": "Custom Terrain (Experimental)",
+    "summary": "Highly customizable Temperate terrain generator.",
+    "tags": [
+        "Temperate"
+    ],
+    "url": ""
+}

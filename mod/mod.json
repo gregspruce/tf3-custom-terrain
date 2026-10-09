@@ -1,0 +1,8 @@
+{
+    "modId": "custom_terrain_experimental",
+    "revision": 1,
+    "severityAdd": "None",
+    "severityRemove": "Warning",
+    "visible": true,
+    "cosmetic": false
+}

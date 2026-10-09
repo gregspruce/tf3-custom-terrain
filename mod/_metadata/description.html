@@ -1,0 +1,85 @@
+<p>A Temperate terrain generator with detailed control over oceans, coastlines, lakes, rivers, mountains, flat buildable land and transport corridors. It is built on the vanilla Temperate generator, so forests, ground textures, biome-based industry placement (oil platforms, fishing, mines, ...) and towns work as in vanilla.</p>
+<blockquote><p><strong>Experimental.</strong> The river network is produced by a custom script node shipped with this mod. The <em>Recipe</em> and <em>Great river</em> options are dropdowns. If map generation fails, the game log (stdout.txt, see <em>Troubleshooting</em>) shows why.</p></blockquote>
+<h2>Features</h2>
+<ul>
+<li><strong>Meandering rivers</strong><br>What you get: Natural, non-repeating meanders up to looping lowland rivers<br>How it works: A Kinoshita "sine-generated curve", the standard model of real meanders. The wavelength is 10-16 x channel width and varies randomly along the river, with skewed lobes. Amplitude varies too and is damped in rough terrain.</li>
+<li><strong>River widths</strong><br>What you get: Narrow streams at the source, wider downstream, widening at every confluence, estuaries at mouths, wider outer banks in bends<br>How it works: Width follows the water a river carries: its upstream length plus every tributary. Rivers reaching the ocean or a lake flare out 1.3-2x (great river 1.8-2.6x).</li>
+<li><strong>Streams vs. rivers</strong><br>What you get: Scenic streams about 20-40 m wide; trunks 60-160 m mid-course and 150-600 m at estuaries<br>How it works: <em>River width</em> scales only the large rivers. <em>Tributaries</em> sets how many side streams branch off.</li>
+<li><strong>Deltas</strong><br>What you get: Large rivers reaching water may split into 2-3 curved arms, each possibly splitting again<br>How it works: <em>River deltas</em> slider</li>
+<li><strong>Great river</strong><br>What you get: One large river that crosses the whole map from the coast side to the far edge<br>How it works: <em>Great river</em> dropdown. With <em>Ocean coast None</em> it runs edge to edge.</li>
+<li><strong>Coastlines</strong><br>What you get: Coves, points and small inlets on top of large bays; offshore islands; stretches of wide beaches next to steep drop-offs<br>How it works: <em>Coastline detail</em>, <em>Offshore islands</em> and <em>Shore variety</em> sliders</li>
+<li><strong>Recipes</strong><br>What you get: Easy builder, Challenging terrain, Maritime, Coast to mountains, Alpine, Landlocked, Great plains<br>How it works: <em>Recipe</em> dropdown. A recipe <strong>shifts</strong> the sliders by fixed steps: at default sliders you get the preset, and the sliders still fine-tune around it. <em>Custom</em> = sliders only. (The menu cannot move the slider handles, so they keep showing your settings.)</li>
+<li><strong>Buildability</strong><br>What you get: Control over flat land share, lowland flatness, hill height, mountain coverage and height, flat valley floors along rivers, and flat corridors through hills for railways and highways<br>How it works: See <em>Sliders</em></li>
+</ul>
+<h3>Limitations</h3>
+<ul>
+<li><strong>Jetties and sand bars/spits:</strong> features narrower than about 100-200 m are smoothed out by the generator's 300-400 m terrain blending.
+</li>
+<li><strong>Land-side cliffs:</strong> <em>Shore variety</em> changes the underwater slope only.
+</li>
+<li><strong>Oxbow lakes</strong> (cut-off meanders) are not generated.
+</li>
+</ul>
+<h2>Sliders</h2>
+<p>Defaults in <strong>bold</strong>.</p>
+<ul>
+<li><strong>Recipe</strong><br>Values: <strong>Custom (sliders only)</strong> / Easy builder / Challenging terrain / Maritime / Coast to mountains / Alpine / Landlocked / Great plains<br>Effect: play-style preset</li>
+<li><strong>Ocean coast</strong><br>Values: None / <strong>Auto (short edge)</strong> / West / East / North / South<br>Effect: which map edge has an ocean</li>
+<li><strong>Ocean size</strong><br>Values: Tiny / Small / <strong>Medium</strong> / Large / Huge<br>Effect: 6-32 % of the map length</li>
+<li><strong>Shoreline</strong><br>Values: Steep / Firm / <strong>Medium</strong> / Soft / Gentle<br>Effect: width of the slope from shore to deep water (120-900 m)</li>
+<li><strong>Coastline detail</strong><br>Values: Smooth / <strong>Natural</strong> / Rugged / Very rugged<br>Effect: shore irregularity 0 / 267 / 533 / 800 m</li>
+<li><strong>Offshore islands</strong><br>Values: None / <strong>Few</strong> / Some / Many<br>Effect: about 0 / 3 / 7 / 14 islands on a Medium map with Medium ocean</li>
+<li><strong>Shore variety</strong><br>Values: Uniform / <strong>Varied</strong> / Strong<br>Effect: shore slope width varies ±0 / 35 / 65 % along the coast</li>
+<li><strong>Lakes</strong><br>Values: None / Rare / Few / <strong>Normal</strong> / Many / Abundant<br>Effect: lake count (scales with map area)</li>
+<li><strong>Lake size</strong><br>Values: Small / Smallish / <strong>Medium</strong> / Large / Huge<br>Effect: 3-10 km lake stamps</li>
+<li><strong>Rivers</strong><br>Values: None / Few / Some / <strong>Normal</strong> / Many / Lots<br>Effect: number of rivers</li>
+<li><strong>River width</strong><br>Values: Narrow / Slim / <strong>Normal</strong> / Wide / Very wide<br>Effect: width of large rivers (0.6-1.7x)</li>
+<li><strong>River meandering</strong><br>Values: Straight / Gentle / <strong>Normal</strong> / Winding / Meandering<br>Effect: meander strength</li>
+<li><strong>River valleys</strong><br>Values: Narrow V / Tight / <strong>Normal</strong> / Broad / Wide flats<br>Effect: flat valley floor 0-450 m each side of rivers</li>
+<li><strong>Tributaries</strong><br>Values: Few / Some / <strong>Normal</strong> / Many / Lots<br>Effect: how many side streams branch off</li>
+<li><strong>Great river</strong><br>Values: <strong>No</strong> / Yes<br>Effect: one river across the map</li>
+<li><strong>River deltas</strong><br>Values: None / <strong>Some</strong> / Frequent<br>Effect: delta chance 0 / 50 / 100 % for large rivers reaching water</li>
+<li><strong>Mountains</strong><br>Values: None / Rare / Few / <strong>Normal</strong> / Many / Dominant<br>Effect: about 0-32 % of land is mountain massif</li>
+<li><strong>Mountain height</strong><br>Values: Low / Moderate / <strong>Normal</strong> / High / Very high<br>Effect: alpine peaks 180-560 m above the plateau</li>
+<li><strong>Flat land</strong><br>Values: Scarce / Limited / <strong>Normal</strong> / Plenty / Vast<br>Effect: about 20-70 % of land is flat lowland</li>
+<li><strong>Hill height</strong><br>Values: Gentle / Low / <strong>Normal</strong> / High / Rugged<br>Effect: hill relief 40-210 m</li>
+<li><strong>Lowland relief</strong><br>Values: Flat / Smooth / <strong>Normal</strong> / Rolling / Undulating<br>Effect: lowland undulation 1-14 m</li>
+<li><strong>Landscape scale</strong><br>Values: Fine / Small / <strong>Normal</strong> / Large / Broad<br>Effect: size of terrain regions</li>
+<li><strong>Inland rise</strong><br>Values: Off / Slight / <strong>Moderate</strong> / Strong / Very strong<br>Effect: terrain rises from the coast side toward the far side</li>
+<li><strong>Corridors</strong><br>Values: None / Few / <strong>Some</strong> / Many / Lots<br>Effect: flat-bottomed valleys (about 800 m wide) through hills and mountains</li>
+</ul>
+<p>Tips:</p>
+<ul>
+<li>Keep some water: Ocean coast not <em>None</em>, or Lakes at least <em>Few</em>. Oil platforms, fishing grounds and sand excavators need open water.
+</li>
+<li>Rock and snow textures start at about 330 m and 380 m, so <em>Mountain height</em> Low/Moderate gives mountains without snow caps.
+</li>
+</ul>
+<h2>Install</h2>
+<ul>
+<li><strong>mod.io:</strong> subscribe, then enable the mod for a new game.
+</li>
+<li><strong>Manually:</strong> copy this folder into your Transport Fever 3 user-data folder under staging_area/ (or mods/), so that mod.json sits directly inside the copied folder. The user-data folder is &lt;Steam&gt;/userdata/&lt;your Steam ID&gt;/3493540/local/.
+</li>
+</ul>
+<p>Then: New Game -&gt; climate <strong>Temperate</strong> -&gt; generator <strong>Custom Terrain (Experimental)</strong>. The terrain is stored in the savegame, so the mod is only needed to generate maps.</p>
+<h2>Diagnostics log</h2>
+<p>On every map generation (including previews in the New Game screen) the mod writes one line starting with CT_DIAG and one starting with CT_RIVERS to the game log (&lt;user-data folder&gt;/crash_dump/stdout.txt). Each line holds JSON: the slider values as the generator received them, seed, map size, and statistics of the generated terrain (water share, buildable-grade shares, height percentiles, biome shares, river network size). This helps when reporting issues or tuning settings. The logger runs in a protected block and outputs nothing that affects the terrain.</p>
+<h2>Troubleshooting</h2>
+<ul>
+<li><strong>Mod listed under My Mods but not in the mod selection</strong><br>Check: _metadata/modinfo.json tags must not contain Map, Map/Savegame or Savegame (those are hidden from the selector)</li>
+<li><strong>Map generation fails</strong><br>Check: look in stdout.txt for lines mentioning custom_terrain, node_editor or Lua</li>
+<li><strong>Too much or too little of something</strong><br>Check: try a <em>Recipe</em>, then fine-tune the sliders</li>
+</ul>
+<h2>For developers</h2>
+<ul>
+<li>The mod is data plus two plain-Lua script nodes (the engine embeds Lua 5.2):
+<ul>
+<li>content/gui/node_editor/custom_terrain_rivers.script.lua implements the river network (see its header). custom_terrain_river_points.node.lua declares its sockets and params.
+</li>
+<li>custom_terrain_diag.* is the diagnostics logger.
+</li></ul>
+</li>
+<li>The node graph (content/climates/temperate/custom_terrain_experimental_gen.tree.lua) is generated by a build script that splices slider logic into the vanilla Temperate graph. New nodes' names start with "mg", and they are coloured orange (sliders green) in the in-game Terrain Generator Editor. All vanilla outputs (heightmap, biome maps, assets, map data) keep their names and meaning, so the vanilla climate, economy and audio keep working.
+</li>
+</ul>
